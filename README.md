@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# বাজার দর | BazarDor
 
-## Getting Started
+**BazarDor** helps people in Bangladesh check everyday product prices and compare rates across local markets. Browse in Bengali, see how prices have changed, and explore market-by-market details.
 
-First, run the development server:
+## Key features
+
+1. **Today’s prices at a glance** — Browse everyday products with current prices and their increase, decrease, or no-change status.
+2. **Price movement highlights** — See products with the biggest price rises and falls on the home page.
+3. **Browse by category** — Explore products by category and sort them from lowest to highest price, or vice versa.
+4. **Compare market prices** — View a product’s minimum, maximum, and average price, with market- and division-level price ranges.
+5. **Accounts and profile** — Sign up and sign in with email and password or configured Google and GitHub providers; signed-in users can update their profile.
+
+## Technologies
+
+- **Next.js 16** — App Router and server-rendered pages
+- **React 19** — UI components and interactive client-side features
+- **Tailwind CSS 4** — Styling and responsive layouts
+- **Better Auth** — Email/password and social authentication
+- **MongoDB** — Authentication data storage
+- **React Icons**, **React Hot Toast**, and **react-marquee-text** — Icons, notifications, and scrolling market updates
+- **BazarDor product API** — Product, category, and market-price data
+
+## Getting started
+
+### Requirements
+
+- Node.js and npm
+- A MongoDB database for authentication
+- A BazarDor product API endpoint (the app has a default endpoint and fallback)
+
+### Install and run
+
+```bash
+npm ci
+```
+
+Create `.env.local` in the project root and add the required values:
+
+```dotenv
+MONGODB_URI=mongodb://127.0.0.1:27017
+BETTER_AUTH_SECRET=replace-with-a-random-secret-at-least-32-characters-long
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+`BETTER_AUTH_SECRET` must contain at least 32 characters. For a hosted MongoDB deployment, use its connection URI for `MONGODB_URI`.
+
+Then start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable                                    | Required               | Purpose                                                             |
+| ------------------------------------------- | ---------------------- | ------------------------------------------------------------------- |
+| `MONGODB_URI`                               | Yes for authentication | MongoDB connection URI                                              |
+| `BETTER_AUTH_SECRET`                        | Yes for authentication | Better Auth secret; at least 32 characters                          |
+| `BETTER_AUTH_URL`                           | Recommended            | App origin used by Better Auth; defaults to `http://localhost:3000` |
+| `MONGODB_DATABASE`                          | No                     | Authentication database name; defaults to `bazardor-db`             |
+| `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | No                     | Enable GitHub sign-in when both are set                             |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | No                     | Enable Google sign-in when both are set                             |
+| `BAZARDOR_API_URL`                          | No                     | Override the primary product API endpoint                           |
 
-## Learn More
+Configure the callback URL for each social provider as `<BETTER_AUTH_URL>/api/auth/callback/<provider>` (for example, `/api/auth/callback/github`). Social sign-in is available only when that provider’s client ID and secret are configured.
 
-To learn more about Next.js, take a look at the following resources:
+## Available scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev    # Start the development server
+npm run build  # Create a production build
+npm run start  # Serve the production build
+npm run lint   # Run ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Live Link
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://bazar-dor-app-gamma.vercel.app/
