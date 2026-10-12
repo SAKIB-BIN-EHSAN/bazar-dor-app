@@ -1,0 +1,3 @@
+export default function SiteFooter() {
+  return <footer className="mt-auto border-t border-[#334a39] bg-green-deep text-[#eef2e7]"><div className="mx-auto flex min-h-[86px] w-[calc(100%_-_2rem)] max-w-[1180px] items-center justify-between gap-5 max-[760px]:min-h-[100px] max-[760px]:flex-col max-[760px]:items-start max-[760px]:justify-center max-[760px]:gap-[7px] max-[760px]:py-[15px] min-[641px]:w-[calc(100%_-_3rem)]"><p className="m-0 text-[0.8rem]"><strong>বাজার দর</strong> — প্রয়োজনীয় পণ্যের দাম এক নজরে।</p><p className="m-0 text-[0.8rem] text-[#c7d0c4]">সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।</p></div></footer>;
+}
