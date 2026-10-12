@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: #f8f8f3;
+  --color-ink: #202b24;
+  --color-muted: #758077;
+  --color-green: #205b3b;
+  --color-green-deep: #153d29;
+  --color-lime: #d3e36b;
+  --color-orange: #e17946;
+  --color-line: #e3e7de;
+  --color-leaf: #eaf3e7;
+  --color-soft-leaf: #eff4e9;
+  --color-card-art: #f1f4e7;
+  --color-up: #287348;
+  --color-up-soft: #e8f5ec;
+  --color-down: #bb4e3f;
+  --color-down-soft: #fff0ed;
+  --color-flat: #69736d;
+  --font-sans: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+  --animate-ticker: ticker-scroll 45s linear infinite;
+  --animate-rise-in: rise-in 520ms ease both;
+  --animate-shimmer: shimmer 1.3s infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes ticker-scroll {
+    to { transform: translateX(-50%); }
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    to { background-position-x: -200%; }
+  }
 }
